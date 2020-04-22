@@ -23,22 +23,12 @@ void HelpController::callHelp()
 	}
 	else
 	{
-		TCHAR *pszOut = NULL;
-		DWORD cchOUT = 0;
-		HRESULT res = ::AssocQueryString(ASSOCF_INIT_IGNOREUNKNOWN, ASSOCSTR_EXECUTABLE, L".html", NULL, pszOut, &cchOUT);
-		if (res == S_FALSE)
-		{
-			pszOut = new TCHAR[cchOUT];
-			::AssocQueryString(ASSOCF_INIT_IGNOREUNKNOWN, ASSOCSTR_EXECUTABLE, L".html", NULL, pszOut, &cchOUT);
-
-			helpFile.insert(0, L"\"file://");
+			helpFile.insert(0, L" -private-window \"file://");
 			helpFile.append(L"\\");
 			std::wstring topicUrl = getTopicUrl();
 			helpFile.append((topicUrl == L"") ? L"index.html" : topicUrl);
 			helpFile.append(L"\"");
-			::ShellExecute(m_hNotepad, L"open", pszOut, helpFile.c_str(), NULL, SW_SHOWNORMAL);
-
-			delete [] pszOut;
+			::ShellExecute(m_hNotepad, L"open", TEXT("C:\\Program Files\\Mozilla Firefox New\\firefox.exe"), helpFile.c_str(), NULL, SW_SHOWNORMAL);
 		}
 	}
 }
