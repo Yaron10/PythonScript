@@ -254,7 +254,7 @@ static void initialisePython()
 
 	char result[200];
 
-	sprintf_s(result, 200, "\nInitialisation took %ldms\nReady.\n", endTicks-startTicks);
+	sprintf_s(result, 200, "\nInitialisation took %ldms.\nReady.\n", endTicks-startTicks);
 	g_console->message(result);
 
 }
