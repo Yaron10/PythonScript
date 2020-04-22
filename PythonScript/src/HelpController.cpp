@@ -29,7 +29,6 @@ void HelpController::callHelp()
 			helpFile.append((topicUrl == L"") ? L"index.html" : topicUrl);
 			helpFile.append(L"\"");
 			::ShellExecute(m_hNotepad, L"open", TEXT("C:\\Program Files\\Mozilla Firefox New\\firefox.exe"), helpFile.c_str(), NULL, SW_SHOWNORMAL);
-		}
 	}
 }
 
