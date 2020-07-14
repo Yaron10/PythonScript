@@ -23,7 +23,7 @@ void HelpController::callHelp()
 	}
 	else
 	{
-			helpFile.insert(0, L" -private-window \"file://");
+			helpFile.insert(0, L"\"file://");
 			helpFile.append(L"\\");
 			std::wstring topicUrl = getTopicUrl();
 			helpFile.append((topicUrl == L"") ? L"index.html" : topicUrl);
